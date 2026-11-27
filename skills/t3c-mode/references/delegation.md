@@ -15,7 +15,8 @@ Every t3c skill that starts another agent follows these rules.
   message to run them together.
 - Child on another provider, with extra settings, in its own worktree, or
   in the background: use `delegate_task`. Settings go in `target.options`.
-- If two providers offer the same model, ask the user which one to use.
+- If several providers offer the same model, use the provider the roster
+  names. Ask the user only when the roster leaves it open.
 
 ## Outside T3 Code
 
