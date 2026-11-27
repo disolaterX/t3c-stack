@@ -34,6 +34,7 @@ Antigravity and OpenCode, with hand-offs to the tstack skills.
 | [`t3c-tdd`](./skills/t3c-tdd) | Red, green, refactor |
 | [`t3c-recall`](./skills/t3c-recall) | Find and read earlier T3 Code threads |
 | [`t3c-reflect`](./skills/t3c-reflect) | Turn a lesson into a rule, check or name |
+| [`t3c-retro`](./skills/t3c-retro) | Weekly review of your T3 Code threads: models judge what went wrong, one fix PR, council, report |
 | [`t3c-help`](./skills/t3c-help) | What the stack offers and how to start |
 
 Playbooks, in [`skills/t3c-mode/playbooks`](./skills/t3c-mode/playbooks):

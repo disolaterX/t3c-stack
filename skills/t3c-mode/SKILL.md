@@ -56,6 +56,7 @@ agents work for you through T3 Code.
 | `t3c-tdd` | Red, green, refactor |
 | `t3c-recall` | Find and read earlier T3 Code threads |
 | `t3c-reflect` | Turn a lesson from this session into a durable rule |
+| `t3c-retro` | Weekly review of T3 Code threads, one fix PR, council, report |
 | `t3c-help` | List what the stack has |
 
 The user's own skills take over where they exist. Before a playbook's
