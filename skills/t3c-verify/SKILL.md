@@ -14,7 +14,7 @@ change allows.
 |---|---|
 | Bug fix | The original reproduction fails before and passes after |
 | Logic | The repo's checks, plus a run of the changed path |
-| UI | Run the app and look: the simulator for iOS, screenshots, or T3 Code preview tools when the user asked for browser checks or invoked a skill that grants them. Close any preview tab you opened |
+| UI | Run the app and look: the user's own verify skill for that platform if installed (such as `ios-sim-verify`), the simulator, screenshots, or T3 Code preview tools when the user asked for browser checks or invoked a skill that grants them. Close any preview tab you opened |
 | Service or config | Hit the running service, read its logs or metrics |
 | Infra | Read the live resource after the change |
 | Docs or prompts | Read the rendered result; run any command it shows |
