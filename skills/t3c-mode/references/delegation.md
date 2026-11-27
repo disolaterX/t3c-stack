@@ -15,8 +15,9 @@ Every t3c skill that starts another agent follows these rules.
   message to run them together.
 - Child on another provider, with extra settings, in its own worktree, or
   in the background: use `delegate_task`. Settings go in `target.options`.
-- If several providers offer the same model, use the provider the roster
-  names. Ask the user only when the roster leaves it open.
+- If several enabled providers offer the same model, use the provider the
+  user or the roster names, else the vendor's own provider (see
+  `t3c-roster`). Ask the user only when that leaves it open.
 
 ## Outside T3 Code
 
@@ -47,8 +48,9 @@ A child sees only its brief. Every brief states:
   work.
 - `isolation: "worktree"` copies the thread's T3 Code project, not the repo
   you are working in. If the repo is not the thread's project, create one
-  git worktree per child yourself (`git worktree add`) and give each child
-  its absolute path in the brief.
+  git worktree per child yourself (`git worktree add`), start each child
+  with `isolation: "shared"`, and give it the worktree's absolute path in
+  the brief.
 - Reviewers are read-only on the checkout they review. Only the brief
   enforces this; T3 Code has no read-only mode.
 - Do not edit files that a running reviewer is reading.

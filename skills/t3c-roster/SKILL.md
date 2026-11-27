@@ -46,8 +46,8 @@ model for a kind of work, use it for the matching role.
    named by the user's instructions or the default pick. Otherwise use the
    vendor's own provider (`claudeAgent` for Claude, `codex` for GPT,
    `antigravity` for Gemini). Ask the user only when none of these settles
-   it, for example two instances of the same provider, or only third-party
-   providers when the vendor's own is disabled.
+   it, for example two instances of the same provider, or no vendor's own
+   provider offering the model.
 5. Write `~/.t3c/roster.md` in this shape and show it to the user:
 
 ```markdown
