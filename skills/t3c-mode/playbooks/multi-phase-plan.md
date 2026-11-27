@@ -10,4 +10,7 @@
    or in the thread if the user prefers. Per phase: goal, scope, proof,
    risks, and what it unblocks. Exit: someone else could start phase 1 from
    the file alone.
-5. **Stop.** Do not start building. Hand the plan to the user.
+5. **Stop.** Do not start building. Reply with the plan's link, one short
+   bullet per user requirement showing what's broken and what changes, and
+   the decisions blocking phase 1, each with your default. Phases, risks and
+   per-phase proof stay in the file.

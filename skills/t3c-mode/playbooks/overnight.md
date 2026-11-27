@@ -23,5 +23,5 @@ The user is not watching. Nobody will answer a question until morning.
    you created with `delete_scheduled_task`, and stop any harness loop.
 6. **When blocked,** record the blocker in the ledger, try another path if
    one is safe, and keep going with what does not depend on it.
-7. **Report.** The stop command's final output, the ledger, and a short
-   list of what the user must decide.
+7. **Report.** The stop command's final output, a link to the ledger, and a
+   short list of what the user must decide.
