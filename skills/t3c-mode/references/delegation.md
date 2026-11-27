@@ -45,6 +45,10 @@ A child sees only its brief. Every brief states:
   worktree starts from your last commit and leaves uncommitted edits out.
   Commit first, with the user's permission, or the child will not see your
   work.
+- `isolation: "worktree"` copies the thread's T3 Code project, not the repo
+  you are working in. If the repo is not the thread's project, create one
+  git worktree per child yourself (`git worktree add`) and give each child
+  its absolute path in the brief.
 - Reviewers are read-only on the checkout they review. Only the brief
   enforces this; T3 Code has no read-only mode.
 - Do not edit files that a running reviewer is reading.

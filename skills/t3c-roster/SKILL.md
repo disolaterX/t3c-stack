@@ -42,10 +42,12 @@ model for a kind of work, use it for the matching role.
 3. If a default is not offered, offer the closest available model from the
    same vendor and say it is a substitute. If no model from that vendor is
    offered, leave the seat empty and say so.
-4. If several providers offer the same model, use the provider the user's
-   instructions or the default pick name. Otherwise use the vendor's own
-   provider (`claudeAgent` for Claude, `codex` for GPT, `antigravity` for
-   Gemini). Ask the user only when none of these settles it.
+4. If several enabled providers offer the same model, use the provider
+   named by the user's instructions or the default pick. Otherwise use the
+   vendor's own provider (`claudeAgent` for Claude, `codex` for GPT,
+   `antigravity` for Gemini). Ask the user only when none of these settles
+   it, for example two instances of the same provider, or only third-party
+   providers when the vendor's own is disabled.
 5. Write `~/.t3c/roster.md` in this shape and show it to the user:
 
 ```markdown
