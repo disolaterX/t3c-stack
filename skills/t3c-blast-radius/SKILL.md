@@ -18,6 +18,6 @@ Follow [delegation.md](../t3c-mode/references/delegation.md) and load
    owns. Check live systems where the user's tools reach them.
 4. **Find owners.** Who else works on what you touch (`git log` authors,
    CODEOWNERS, open PRs on the same files).
-5. **Report** a table: thing touched, how, risk (break, behavior change,
-   none), and how to check it after the change. End with the open PRs and
-   people to tell.
+5. **Report** what can break first, then the open PRs and people to tell.
+   Keep the table (thing touched, how, risk, how to check) short; if it is
+   long, write it to a file and link it.

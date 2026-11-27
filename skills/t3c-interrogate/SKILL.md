@@ -45,5 +45,5 @@ F1 [blocker|should|nit] <file>:<line> <claim>. Fix: <suggestion>
 
 ## Report
 
-A table: finding, reviewer vendor, your verdict, action taken. Then which
-reviewers approved and what is left open.
+Real findings and what you did about each, one line apiece. Then how many
+you judged `wrong` or `nit`, which reviewers approved, and what is left open.

@@ -19,7 +19,8 @@ roster with `t3c-roster`.
    size of change, failure modes, how each is proven, and what each makes
    harder later. Prefer the design that removes the most.
 4. **Choose.** Pick one. Take a part from another only when it removes a
-   real risk. Write the reason in two or three lines.
+   real risk. Write the reason in two or three lines. The comparison goes in
+   the plan file; the user gets the choice and the reason.
 5. **Plan.** Ordered steps, each one shippable and checkable, with a
    checkpoint where the user can stop or redirect.
 6. **Stop for the user** if the choice is costly to undo. Otherwise

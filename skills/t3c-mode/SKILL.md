@@ -62,8 +62,14 @@ The user's own skills take over where they exist. Before a playbook's
 fallback steps, check for `full-stop`, `file-pr`, `babysit-pr`, `council`,
 `sol-loop`, `takeover` and `modernize`, and use them instead.
 
+A skill's report goes to the user only when they called that skill. Called
+from a playbook, it feeds your next step; the user gets the playbook's one
+report.
+
 ## Stop
 
-Finish when the playbook's last exit check holds. Report what changed, the
-proof, and what is left. If the next step needs the user, say exactly what
-to do and what to send back.
+Finish when the playbook's last exit check holds. Write one reply: the
+outcome in a sentence or two, the proof in a line with where the full output
+lives, and what is left. Steps, agents and exit checks are not the report.
+If the next step needs the user, say what to do, what to send back, and the
+default you would take.

@@ -10,4 +10,4 @@
    state. Exit: someone else could resume from it alone.
 4. **Unwatch and unschedule.** Call `unwatch_pull_request` on any PR you
    watch. Delete schedules you created with `delete_scheduled_task`.
-5. **Report** the handoff and what the user needs to do.
+5. **Report** where the handoff is and what the user needs to do.
