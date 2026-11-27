@@ -9,18 +9,22 @@ while [ -L "$src" ]; do
 done
 REPO="$(cd -P "$(dirname "$src")" && pwd)"
 SKILLS="$REPO/skills"
-TARGETS="${T3C_SKILL_DIRS:-$HOME/.claude/skills $HOME/.agents/skills}"
+if [ -n "${T3C_SKILL_DIRS:-}" ]; then
+  IFS=: read -r -a TARGETS <<< "$T3C_SKILL_DIRS"
+else
+  TARGETS=("$HOME/.claude/skills" "$HOME/.agents/skills")
+fi
 
 usage() {
   cat <<EOF
 usage: $0 <command>
 
-  link     link every t3c skill into: $TARGETS
+  link     link every t3c skill into: ${TARGETS[*]}
   unlink   remove links that point into this repo
   status   show link state per skill and target
   check    validate skill files (frontmatter, names, relative links)
 
-Set T3C_SKILL_DIRS to a space-separated list of directories to change targets.
+Set T3C_SKILL_DIRS to a colon-separated list of directories to change targets.
 EOF
 }
 
@@ -32,7 +36,7 @@ skill_names() {
 
 cmd_link() {
   local target name dst
-  for target in $TARGETS; do
+  for target in "${TARGETS[@]}"; do
     mkdir -p "$target"
     echo "$target"
     for name in $(skill_names); do
@@ -46,7 +50,7 @@ cmd_link() {
         continue
       fi
       if [ -e "$dst" ]; then
-        echo "  skip     $name (a real directory is in the way)"
+        echo "  skip     $name (an existing file or directory is in the way)"
         continue
       fi
       ln -s "$SKILLS/$name" "$dst"
@@ -57,7 +61,7 @@ cmd_link() {
 
 cmd_unlink() {
   local target name dst
-  for target in $TARGETS; do
+  for target in "${TARGETS[@]}"; do
     echo "$target"
     for name in $(skill_names); do
       dst="$target/$name"
@@ -71,7 +75,7 @@ cmd_unlink() {
 
 cmd_status() {
   local target name dst state
-  for target in $TARGETS; do
+  for target in "${TARGETS[@]}"; do
     echo "$target"
     for name in $(skill_names); do
       dst="$target/$name"
@@ -80,7 +84,7 @@ cmd_status() {
       elif [ -L "$dst" ]; then
         state="other link -> $(readlink "$dst")"
       elif [ -e "$dst" ]; then
-        state="real directory"
+        state="existing file or directory"
       else
         state="not linked"
       fi
@@ -100,7 +104,7 @@ frontmatter_value() {
 check_links() {
   local file="$1" base link path
   base="$(dirname "$file")"
-  { grep -o '](\.[^)]*)' "$file" || true; } | sed 's/^](//; s/)$//; s/#.*$//' | while read -r link; do
+  { grep -o '](\([^)#]*\)' "$file" | grep -v '](\(https\{0,1\}\|mailto\):' || true; } | sed 's/^](//; s/)$//; s/#.*$//' | while read -r link; do
     path="$base/$link"
     [ -e "$path" ] || echo "$file: broken link $link"
   done

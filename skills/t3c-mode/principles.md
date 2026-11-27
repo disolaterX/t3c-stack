@@ -1,7 +1,7 @@
 # Principles
 
-Short rules every t3c playbook and skill follows. When two pull apart, the
-earlier one wins.
+Short rules every t3c playbook and skill follows. Rules 13 and 14 always
+win. Otherwise, when two pull apart, the earlier one wins.
 
 ## Truth
 

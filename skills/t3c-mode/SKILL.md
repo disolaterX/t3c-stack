@@ -58,9 +58,9 @@ agents work for you through T3 Code.
 | `t3c-reflect` | Turn a lesson from this session into a durable rule |
 | `t3c-help` | List what the stack has |
 
-The user's own skills take over where they exist. Before shipping, check
-for `full-stop`, `file-pr`, `babysit-pr`, `council`, `sol-loop`, `takeover`
-and `modernize`, and use them instead of the fallback steps in a playbook.
+The user's own skills take over where they exist. Before a playbook's
+fallback steps, check for `full-stop`, `file-pr`, `babysit-pr`, `council`,
+`sol-loop`, `takeover` and `modernize`, and use them instead.
 
 ## Stop
 

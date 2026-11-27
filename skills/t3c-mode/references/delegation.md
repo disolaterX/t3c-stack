@@ -9,10 +9,12 @@ Every t3c skill that starts another agent follows these rules.
 - Resolve each role from the roster (`t3c-roster`). If a roster model is
   not offered or its provider is disabled, report it. Do not swap in
   another model without saying so.
-- Child on your own provider, a model it offers, no extra settings: use your
-  native subagent tool (Claude `Agent`, Codex `spawn_agent`).
-- Child on another provider, with extra settings, or in its own worktree:
-  use `delegate_task`. Settings go in `target.options`.
+- Child on your own provider, a model it offers, no extra settings, and you
+  wait for it: use your native subagent tool (Claude `Agent` with
+  `run_in_background: false`, Codex `spawn_agent`). Start several in one
+  message to run them together.
+- Child on another provider, with extra settings, in its own worktree, or
+  in the background: use `delegate_task`. Settings go in `target.options`.
 - If two providers offer the same model, ask the user which one to use.
 
 ## Outside T3 Code
@@ -38,13 +40,18 @@ A child sees only its brief. Every brief states:
 
 ## Isolation
 
-- Agents that write code get `isolation: "worktree"`, one worktree each.
-- Reviewers are read-only on the checkout they review.
+- Agents that write code get `isolation: "worktree"`, one worktree each. A
+  worktree starts from your last commit and leaves uncommitted edits out.
+  Commit first, with the user's permission, or the child will not see your
+  work.
+- Reviewers are read-only on the checkout they review. Only the brief
+  enforces this; T3 Code has no read-only mode.
 - Do not edit files that a running reviewer is reading.
 
 ## Waiting
 
-- Run children in the background. Do useful work while they run.
+- Run `delegate_task` children in the background. Do useful work while
+  they run.
 - Do not poll, sleep, or start watchers. T3 Code tells you when a child
   finishes.
 - When a result arrives, check it against the artifact at once.
@@ -53,7 +60,8 @@ A child sees only its brief. Every brief states:
 
 ## Size
 
-- Default panel: three agents, one per vendor.
+- Default panel: three agents, one per vendor. A panel with fewer than two
+  vendors is labelled `single-vendor` in its report.
 - More than six agents in one step needs a reason you can state in one line.
-- Use the `scout` role for bulk reading and searching. Use `builder` and
-  `reviewer` roles for judgment.
+- Use the `scout` role for bulk reading and searching. Use `builder`, `panel`
+  and `judge` for judgment.

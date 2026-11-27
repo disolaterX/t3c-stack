@@ -5,6 +5,9 @@ description: Before a change, list everything it touches - callers, configs, dep
 
 # t3c blast radius
 
+Follow [delegation.md](../t3c-mode/references/delegation.md) and load
+`t3c-roster` before starting `scout` agents.
+
 1. **Name the change** in one line, and the symbols, files, keys or tables
    it touches.
 2. **Find direct users.** Search for every reference: code, tests, configs,

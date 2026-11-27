@@ -24,8 +24,9 @@ model for a kind of work, use it for the matching role.
 ## Load
 
 1. Read `~/.t3c/roster.md`. If it is missing, go to Write.
-2. Call `orchestrator_capabilities`. Use its `search` to find any roster
-   model not in the short list.
+2. Use the `orchestrator_capabilities` result already fetched in this
+   thread, or call it once if there is none. Use its `search` to find any
+   roster model not in the short list.
 3. Check every roster entry: provider enabled, model offered, options
    valid. The live list is right; the file is a preference.
 4. If an entry fails, tell the user which role, which model, and why. Ask

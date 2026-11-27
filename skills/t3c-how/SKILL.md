@@ -5,6 +5,9 @@ description: Explain how a piece of code or a system works, traced through the r
 
 # t3c how
 
+Follow [delegation.md](../t3c-mode/references/delegation.md) and load
+`t3c-roster` before starting `scout` agents.
+
 1. **Find the entry points.** Where the behavior starts: a route, a
    command, a handler, a config key. For a large or unfamiliar repo, send
    `scout` agents to search in parallel and return file and line lists.

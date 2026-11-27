@@ -13,9 +13,9 @@ The text here is written from scratch.
 
 For pstack itself inside T3 Code, with upstream's skill text, see
 [t3-pstack](https://github.com/chhoumann/t3-pstack). t3c-stack is smaller
-and its own: plain skill folders with no plugin or Node installer, one
-shared folder that Claude Code, Codex, Antigravity and OpenCode all read,
-and hand-offs to the tstack skills.
+and its own: plain skill folders with no plugin or Node installer, linked
+into `~/.claude/skills` for Claude Code and `~/.agents/skills` for Codex,
+Antigravity and OpenCode, with hand-offs to the tstack skills.
 
 ## What you get
 
@@ -59,7 +59,7 @@ If you have the [tstack](https://github.com/t3dotgg/tstack) skills
 | Browser checks | `t3c-verify` with T3 Code's preview tools |
 | `/recall` over Cursor transcripts | `t3c-recall` over T3 Code threads |
 | `/reflect`, `/correct` | `t3c-reflect` |
-| `pstack-models.mdc` | `~/.t3c/roster.md`, checked against the live provider list on every use |
+| `pstack-models.mdc` | `~/.t3c/roster.md`, checked against the live provider list once per thread |
 
 Outside T3 Code the skills still load. Panels fall back to native subagents,
 or to sequential passes labelled as not independent.
@@ -75,7 +75,8 @@ cd t3c-stack
 `link` symlinks each skill into `~/.claude/skills` (Claude Code) and
 `~/.agents/skills` (Codex, OpenCode, Pi and other agents that read the
 shared folder). It never replaces an existing file or a link that points
-elsewhere. Set `T3C_SKILL_DIRS` to change the targets.
+elsewhere. Set `T3C_SKILL_DIRS` to a colon-separated list to change the
+targets.
 
 ```bash
 ./t3c.sh status   # link state per skill and target

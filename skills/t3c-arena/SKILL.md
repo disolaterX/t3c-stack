@@ -33,11 +33,10 @@ roster with `t3c-roster`.
    when you wrote one of the attempts, give the `judge` role the criteria
    and the results without vendor names, labelled A, B, C. Check the
    judge's reasons against the code yourself.
-6. **Graft.** Start from the winner. Take a part from another seat only
-   when it is better on its own and fits without glue. Run the proof again
-   on the result.
-7. **Clean up.** Keep the winning worktree or branch. List the others for
-   the user; do not delete them unless asked.
+6. **Graft.** Bring the winner's diff onto your own branch. Take a part from
+   another seat only when it is better on its own and fits without glue. Run
+   the proof again there.
+7. **Clean up.** List the seat worktrees for the user; do not delete them unless asked.
 
 ## Seat reply format
 

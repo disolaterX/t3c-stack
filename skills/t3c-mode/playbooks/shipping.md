@@ -6,7 +6,7 @@ send", use `full-stop` as well; never merge. Otherwise:
 1. **Confirm proof.** Every change in the diff has evidence from
    `t3c-verify`. Exit: no unproven change.
 2. **Review.** If the user asked for `council` or `sol-loop`, run it.
-   Otherwise run `t3c-interrogate`. Exit: no open blocker.
+   Otherwise run `t3c-interrogate`, unless it already passed on this diff. Exit: no open blocker.
 3. **Branch.** If on the default branch, create a branch. Exit: on a
    feature branch.
 4. **Ask before publishing.** Committing, pushing and opening a PR need the
@@ -14,7 +14,8 @@ send", use `full-stop` as well; never merge. Otherwise:
    stop here and hand off.
 5. **File the PR.** Use `file-pr` if installed. Otherwise: rebase on the
    default branch, open a real PR (not a draft) that leads with the problem,
-   then the fix, then one line on how it was proven. Exit: PR open.
+   then the fix, then one line on how it was proven. Link it with
+   `link_pull_request`. Exit: PR open and linked.
 6. **Babysit.** Follow [babysit](./babysit.md) until the merge gate passes.
 7. **Stop at the gate.** Never merge, enable auto-merge or join a merge
    queue. Report the PR link, head commit, proof and review outcome.
