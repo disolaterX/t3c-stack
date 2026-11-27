@@ -1,0 +1,23 @@
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./t3c.sh check
+      - run: shellcheck t3c.sh
+      - name: link into a temporary home
+        run: |
+          export T3C_SKILL_DIRS="$RUNNER_TEMP/a $RUNNER_TEMP/b"
+          ./t3c.sh link
+          ./t3c.sh status
+          test -f "$RUNNER_TEMP/a/t3c-mode/SKILL.md"
+          test -f "$RUNNER_TEMP/b/t3c-arena/SKILL.md"
+          ./t3c.sh unlink
+          test ! -e "$RUNNER_TEMP/a/t3c-mode"
