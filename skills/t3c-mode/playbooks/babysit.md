@@ -7,7 +7,7 @@ Use the `babysit-pr` skill if installed. Otherwise:
 2. **Handle what is there.** Read checks and comments newer than the latest
    push. Verify each bot finding against the code and fix real ones. A
    request to babysit allows pushing to the PR's own branch only. Replies on
-   GitHub need the user's word, or go through `leaving-pr-comments` if
+   GitHub need the user's word; write them with `leaving-pr-comments` if
    installed. Bring human review comments and design questions to the user
    before you reply or change scope. If the PR is far behind its base, use
    `modernize` if installed. Exit: nothing open from before the watch.

@@ -14,8 +14,8 @@ send", use `full-stop` as well; never merge. Otherwise:
    stop here and hand off.
 5. **File the PR.** Use `file-pr` if installed. Otherwise: rebase on the
    default branch, open a real PR (not a draft) that leads with the problem,
-   then the fix, then one line on how it was proven. Link it with
-   `link_pull_request`. Exit: PR open and linked.
+   then the fix, then one line on how it was proven. Either way, link it
+   with `link_pull_request`. Exit: PR open and linked.
 6. **Babysit.** Follow [babysit](./babysit.md) until the merge gate passes.
 7. **Stop at the gate.** Never merge, enable auto-merge or join a merge
    queue. Report the PR link, head commit, proof and review outcome.

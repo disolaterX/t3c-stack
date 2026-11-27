@@ -37,6 +37,7 @@ skill_names() {
 cmd_link() {
   local target name dst
   for target in "${TARGETS[@]}"; do
+    [ -n "$target" ] || continue
     mkdir -p "$target"
     echo "$target"
     for name in $(skill_names); do
@@ -62,6 +63,7 @@ cmd_link() {
 cmd_unlink() {
   local target name dst
   for target in "${TARGETS[@]}"; do
+    [ -n "$target" ] || continue
     echo "$target"
     for name in $(skill_names); do
       dst="$target/$name"
@@ -76,6 +78,7 @@ cmd_unlink() {
 cmd_status() {
   local target name dst state
   for target in "${TARGETS[@]}"; do
+    [ -n "$target" ] || continue
     echo "$target"
     for name in $(skill_names); do
       dst="$target/$name"
@@ -104,7 +107,8 @@ frontmatter_value() {
 check_links() {
   local file="$1" base link path
   base="$(dirname "$file")"
-  { grep -o '](\([^)#]*\)' "$file" | grep -v '](\(https\{0,1\}\|mailto\):' || true; } | sed 's/^](//; s/)$//; s/#.*$//' | while read -r link; do
+  { grep -o '](\([^)]*\))' "$file" | grep -v '](\(https\{0,1\}\|mailto\):' || true; } | sed 's/^](//; s/)$//; s/#.*$//' | while read -r link; do
+    [ -n "$link" ] || continue
     path="$base/$link"
     [ -e "$path" ] || echo "$file: broken link $link"
   done
