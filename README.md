@@ -11,6 +11,12 @@ Cursor's subagents and mixed-model panels inside one vendor. T3 Code already
 starts agents on any connected provider, so t3c-stack uses that directly.
 The text here is written from scratch.
 
+For pstack itself inside T3 Code, with upstream's skill text, see
+[t3-pstack](https://github.com/chhoumann/t3-pstack). t3c-stack is smaller
+and its own: plain skill folders with no plugin or Node installer, one
+shared folder that Claude Code, Codex, Antigravity and OpenCode all read,
+and hand-offs to the tstack skills.
+
 ## What you get
 
 | Skill | What it does |
